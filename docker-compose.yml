@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: mysql_db
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: 'razib_db'
+    restart: unless-stopped
+
+    ports:
+      - "3306:3306"
+
+
+  
