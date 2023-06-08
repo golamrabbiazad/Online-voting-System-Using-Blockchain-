@@ -1,28 +1,31 @@
-var express = require("express");
-
-var app = express();
-
 const ejs = require("ejs");
-// app.use(express.static('public'));
-var session = require("express-session");
+const path = require("path");
+const express = require("express");
+const session = require("express-session");
+
+const app = express();
+
 app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
 
-// fetching table
-var path = require("path");
-app.set("views", path.join(__dirname, "/src/views"));
-app.set("view engine", "ejs");
+// app.use(express.static("public"));
 
 app.use(express.static("src"));
 // app.use('/css',express.static(__dirname + 'src/css'))
 
+// fetching table
+
+app.set("views", path.join(__dirname, "/src/views"));
+app.set("view engine", "ejs");
+
 // web-portion --------------------------------->
 app.use(
   session({
-    secret: "123456cat",
+    secret: "your-vote-counts",
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60000 * 300 },
+    cookie: { maxAge: 60000 * 300, secure: true },
   })
 );
 
