@@ -1,11 +1,11 @@
--- Drop the table if it exists
-DROP TABLE IF EXISTS registration, nid_info, registered_users;
-
 -- Create the database
 CREATE DATABASE IF NOT EXISTS razib_db;
 
 -- Use the database
 USE razib_db;
+
+-- Drop the table if it exists
+DROP TABLE IF EXISTS registration, nid_info, registered_users;
 
 CREATE TABLE registration(
     id INT PRIMARY KEY AUTO_INCREMENT,
